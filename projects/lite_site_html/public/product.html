@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Страница продукта</title>
+</head>
+<body>
+  <h1>Информация о продукте</h1>
+  <div id="productInfo"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    console.log('Полученный ID:', id);
+
+    if (id) {
+      fetch('/uavs/' + id)
+        .then(res => {
+          console.log('Статус ответа:', res.status);
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json();
+        })
+        .then(item => {
+          console.log('Полученный объект:', item);
+
+          if (!item || !item.id) {
+            document.getElementById('productInfo').textContent = 'Продукт не найден.';
+            return;
+          }
+
+          const infoDiv = document.getElementById('productInfo');
+          infoDiv.innerHTML = `
+            <img src="${item.photo_url}" alt="${item.name}" width="300" />
+            <h2>${item.name}</h2>
+            <p><strong>Производитель:</strong> ${item.manufacturer}</p>
+            <p><strong>Тип ЛА:</strong> ${item.aircraft_type}</p>
+            <p><strong>Весовая категория, кг:</strong> ${item.weight_category_kg}</p>
+            <p><strong>Полезная нагрузка:</strong> ${item.payload}</p>
+            <p><strong>Радиус связи (км):</strong> ${item.communication_range_km}</p>
+            <p><strong>Макс. взлётная масса (кг):</strong> ${item.max_takeoff_mass_kg}</p>
+            <p><strong>Макс. время полёта (мин.):</strong> ${item.max_flight_time_min ?? ''}</p>
+            <p><strong>Макс. длина маршрута (км):</strong> ${item.max_route_length_km ?? ''}</p>
+            <p><strong>Макс. скорость (км/ч):</strong> ${item.max_speed_km_h ?? ''}</p>
+            <p><strong>Макс. полезная нагрузка (кг):</strong> ${item.max_payload_kg ?? ''}</p>
+            <p><strong>Крейсерская скорость (км/ч):</strong> ${item.cruise_speed_km_h ?? ''}</p>
+            <p><strong>Сферы применения:</strong> ${item.application_areas ?? ''}</p>
+            <p><strong>Описание:</strong> ${item.description}</p>
+            <p>
+              <strong>Подробнее на официальном сайте:</strong>
+              <a href="${item.official_website}" target="_blank">${item.official_website}</a>
+            </p>
+            <br/>
+            <a href="index.html">Назад</a>
+          `;
+        })
+        .catch(err => {
+          console.error('Ошибка при загрузке данных:', err);
+          document.getElementById('productInfo').textContent = 'Ошибка при загрузке данных.';
+        });
+    } else {
+      document.getElementById('productInfo').textContent = 'ID не указан.';
+    }
+  </script>
+</body>
+</html>
