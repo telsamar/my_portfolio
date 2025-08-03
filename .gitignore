@@ -1,0 +1,5 @@
+.DS_STORE
+venv
+node_modules
+__pycache__
+package-lock.json
