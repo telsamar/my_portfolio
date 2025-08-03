@@ -1,0 +1,58 @@
+1. Добавьте видео для анализа
+curl -X POST "http://127.0.0.1:8001/videos/add" \
+     -H "Content-Type: application/json" \
+     -d '{"url": "https://www.youtube.com/watch?v=HaNaKPAQpa0"}'
+
+Пример ответа:
+{
+  {"message":"Видео добавлено в очередь для обработки."}%     
+}
+
+ОТПРАВКА ИЗ WIN:
+Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:8001/videos/add" -Headers @{"Content-Type"="application/json"} -Body '{"url": "https://www.youtube.com/watch?v=HaNaKPAQpa0"}'
+
+curl -X POST "http://127.0.0.1:8001/videos/add" -H "Content-Type: application/json" -d '{"url": "https://www.youtube.com/watch?v=HaNaKPAQpa0"}'
+
+2. Проверьте статус видео
+Пока воркер обрабатывает видео, вы можете получить информацию о нем:
+curl -X GET "http://127.0.0.1:8001/videos/by_url?url=https://www.youtube.com/watch?v=HaNaKPAQpa0"
+
+Пример ответа:
+{
+  "id": 1,
+  "url": "https://www.youtube.com/watch?v=HaNaKPAQpa0",
+  "status": "Завершено",
+  "faces_detected": 5,
+  "faces": [
+    {
+      "bounding_box": {
+        "x": 100,
+        "y": 150,
+        "width": 50,
+        "height": 50
+      }
+    }
+    // Дополнительные объекты лиц
+  ]
+}
+
+ОТПРАВКА ИЗ WIN:
+Invoke-RestMethod -Method Get -Uri "http://127.0.0.1:8001/videos/by_url?url=https://www.youtube.com/watch?v=HaNaKPAQpa0"
+
+
+3. Получите список всех видео
+curl -X GET "http://127.0.0.1:8001/videos"
+
+Пример ответа:
+[
+  {
+    "id": 1,
+    "url": "https://www.youtube.com/watch?v=HaNaKPAQpa0",
+    "status": "Завершено",
+    "faces_detected": 5,
+    "created_at": "2024-11-17T16:00:00"
+  }
+]
+
+ОТПРАВКА ИЗ WIN:
+Invoke-RestMethod -Method Get -Uri "http://127.0.0.1:8001/videos"
