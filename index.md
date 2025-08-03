@@ -1,6 +1,6 @@
 ---
 layout: clean
-title: Портфолио
+title: Опыт программирования
 ---
 
 {% include_relative README.md %}
