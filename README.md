@@ -96,22 +96,34 @@
   GitHub-активность
 </h2>
 
-<p align="center" style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; margin:0;">
+<p align="center" style="margin:0 0 16px 0;">
   <a href="https://github.com/telsamar">
-    <img src="https://github-readme-stats.vercel.app/api?username=telsamar&show_icons=true&theme=dark&hide_border=true&count_private=true" alt="GitHub Stats" />
-  </a>
-  <a href="https://github.com/telsamar">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=telsamar&theme=dark&hide_border=true" alt="GitHub Streak" />
-  </a>
-  <a href="https://github.com/telsamar">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=telsamar&layout=compact&theme=dark&hide_border=true" alt="Top Languages" />
-  </a>
-  <a href="https://github.com/telsamar">
-    <img src="https://github-profile-trophy.vercel.app/?username=telsamar&theme=dark&margin-w=7&margin-h=7" alt="GitHub Trophies" />
+    <img src="assets/github-contribution-grid-snake.svg" alt="Contribution Snake — контрибуции по дням" width="100%" style="max-width:820px; display:block; margin:0 auto;" />
   </a>
 </p>
 
-<p align="center" style="margin-top:8px;">
+<p align="center" style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; margin:0;">
+  <a href="https://github.com/telsamar">
+    <img src="assets/stats.svg" alt="GitHub Stats" />
+  </a>
+  <a href="https://github.com/telsamar">
+    <img src="https://streak-stats.demolab.com?user=telsamar&theme=github-dark&hide_border=true" alt="GitHub Streak" />
+  </a>
+  <a href="https://github.com/telsamar">
+    <img src="assets/top-langs.svg" alt="Top Languages" />
+  </a>
+  <a href="https://github.com/telsamar">
+    <img src="assets/trophies.svg" alt="GitHub Trophies" />
+  </a>
+</p>
+
+<p align="center" style="margin:12px 0 0 0;">
+  <a href="https://github.com/telsamar">
+    <img src="assets/activity-graph.svg" alt="Activity Graph" width="100%" style="max-width:820px;" />
+  </a>
+</p>
+
+<p align="center" style="margin:16px 0 0 0;">
   <a href="https://github.com/telsamar">
     <img src="https://img.shields.io/github/followers/telsamar?label=Followers&style=for-the-badge" alt="Followers" />
   </a>
