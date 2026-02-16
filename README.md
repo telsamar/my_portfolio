@@ -106,7 +106,7 @@
     <img src="https://readme-stats-fast.vercel.app/api/top-langs/?username=telsamar&layout=compact&theme=github_dark&hide_border=true&langs_count=8" alt="Top Languages" />
   </a>
   <a href="https://github.com/telsamar?tab=achievements">
-    <img src="https://raw.githubusercontent.com/telsamar/my_portfolio/main/assets/trophies.svg" alt="GitHub Trophies" />
+    <img src="https://github-profile-trophy.vercel.app/?username=telsamar&amp;theme=onedark&amp;no-frame=true" alt="GitHub Trophies" />
   </a>
 </p>
 
