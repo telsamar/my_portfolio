@@ -98,6 +98,11 @@
         <td style="border:1px solid #ccc; padding:8px;">Научно-исследовательская работа: определение лица на фотографии с помощью YOLO</td>
         <td style="border:1px solid #ccc; padding:8px;"><a href="https://github.com/telsamar/YOLOv8-nirs/tree/main">GitHub</a></td>
       </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px;">Прогноз заявок на инсталляции</td>
+        <td style="border:1px solid #ccc; padding:8px;">Модель прогнозирования заявок по адресам на день, неделю и месяц: нормализация адресов, исключения и коэффициенты по территориям, кластеризация в области по координатам, вывод в Excel. Консоль, меню и GUI для настройки конфига.</td>
+        <td style="border:1px solid #ccc; padding:8px;"><a href="projects/zakaz/">проект в репозитории</a></td>
+      </tr>
     </tbody>
   </table>
 </div>
