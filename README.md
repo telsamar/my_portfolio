@@ -1,3 +1,4 @@
+<div style="max-width:90%; margin:0 auto; padding:0 12px; box-sizing:border-box;">
 <p align="center" style="margin:0; padding:0 12px;">
   <img
     src="images/me.png"
@@ -38,7 +39,7 @@
 </h3>
 <div align="center" style="width:100%; overflow-x:auto; padding:0 12px;">
   <table cellpadding="8" cellspacing="0" style="border-collapse:collapse; border:1px solid #ccc; width:100%; min-width:320px; table-layout:fixed;">
-    <colgroup><col style="width:22%"><col style="width:58%"><col style="width:20%"></colgroup>
+    <colgroup><col style="width:22%"><col style="width:76%"><col style="width:5.5em"></colgroup>
     <thead>
       <tr>
         <th style="border:1px solid #ccc; padding:8px; background:#f6f8fa;">Проект</th>
@@ -76,7 +77,7 @@
 </h3>
 <div align="center" style="width:100%; overflow-x:auto; padding:0 12px;">
   <table cellpadding="8" cellspacing="0" style="border-collapse:collapse; border:1px solid #ccc; width:100%; min-width:320px; table-layout:fixed;">
-    <colgroup><col style="width:22%"><col style="width:58%"><col style="width:20%"></colgroup>
+    <colgroup><col style="width:22%"><col style="width:76%"><col style="width:5.5em"></colgroup>
     <thead>
       <tr>
         <th style="border:1px solid #ccc; padding:8px; background:#f6f8fa;">Проект</th>
@@ -140,4 +141,5 @@
   <p style="margin:2px 0; font-size:0.75em; color:#666;">
     Последнее обновление: 16 февраля 2026
   </p>
+</div>
 </div>
