@@ -18,9 +18,14 @@
   <h2 style="font-size:2em; font-weight:bold; margin:20px 0; border-bottom:none;">
     Обо мне
   </h2>
-  <p style="max-width:900px; width:clamp(400px, 80%, 1000px); text-align:center; margin:0 auto;">
-    Специалист в разработке веб-приложений, микросервисов и автоматизации бизнес-процессов: финтех-решения, интеллектуальные боты и корпоративные продукты на <strong>JavaScript</strong> &amp; <strong>Python</strong><br>
-    Постоянно внедряю передовые технологии
+  <p style="max-width:900px; width:clamp(400px, 80%, 1000px); text-align:center; margin:0 auto; line-height:1.6;">
+    Занимаюсь разработкой на <strong>JavaScript</strong> и <strong>Python</strong>: веб-приложения, бэкенд, микросервисы, скрипты и автоматизация. Делаю парсеры, ботов, интеграции с API и сервисами, работу с данными и прототипы под ваши задачи.
+  </p>
+  <p style="max-width:900px; width:clamp(400px, 80%, 1000px); text-align:center; margin:12px auto 0; line-height:1.6;">
+    Важно для меня: чётко понять задачу, предложить адекватное решение и довести проект до результата. Готов обсуждать сроки и объём, подстраиваться под формат работы и держать связь по ходу дела.
+  </p>
+  <p style="max-width:900px; width:clamp(400px, 80%, 1000px); text-align:center; margin:12px auto 0; line-height:1.6;">
+    Ниже — примеры реализованных проектов. Если ваш заказ похож по тематике или стеку — напишите: разберём задачу и оценим возможность сотрудничества.
   </p>
 </div>
 
@@ -84,9 +89,6 @@
       </tr>
     </tbody>
   </table>
-  <p align="center">
-    <sub>P.S. Все ключи, которые вы найдете в устаревших проектах, являются неактуальными.</sub>
-  </p>
 </div>
 
 
@@ -96,39 +98,21 @@
   GitHub-активность
 </h2>
 
-<p align="center" style="margin:0 0 16px 0;">
-  <a href="https://github.com/telsamar">
-    <img src="assets/github-contribution-grid-snake.svg" alt="Contribution Snake — контрибуции по дням" width="100%" style="max-width:820px; display:block; margin:0 auto;" />
-  </a>
-</p>
-
 <p align="center" style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; margin:0;">
-  <a href="https://github.com/telsamar">
-    <img src="assets/stats.svg" alt="GitHub Stats" />
-  </a>
   <a href="https://github.com/telsamar">
     <img src="https://streak-stats.demolab.com?user=telsamar&theme=github-dark&hide_border=true" alt="GitHub Streak" />
   </a>
   <a href="https://github.com/telsamar">
-    <img src="assets/top-langs.svg" alt="Top Languages" />
+    <img src="https://readme-stats-fast.vercel.app/api/top-langs/?username=telsamar&layout=compact&theme=github_dark&hide_border=true&langs_count=8" alt="Top Languages" />
   </a>
-  <a href="https://github.com/telsamar">
-    <img src="assets/trophies.svg" alt="GitHub Trophies" />
+  <a href="https://github.com/telsamar?tab=achievements">
+    <img src="https://raw.githubusercontent.com/telsamar/my_portfolio/main/assets/trophies.svg" alt="GitHub Trophies" />
   </a>
 </p>
 
 <p align="center" style="margin:12px 0 0 0;">
   <a href="https://github.com/telsamar">
-    <img src="assets/activity-graph.svg" alt="Activity Graph" width="100%" style="max-width:820px;" />
-  </a>
-</p>
-
-<p align="center" style="margin:16px 0 0 0;">
-  <a href="https://github.com/telsamar">
-    <img src="https://img.shields.io/github/followers/telsamar?label=Followers&style=for-the-badge" alt="Followers" />
-  </a>
-  <a href="https://github.com/telsamar">
-    <img src="https://img.shields.io/github/stars/telsamar?label=Stars&style=for-the-badge" alt="Stars" />
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=telsamar&theme=github-dark&hide_border=true" alt="Activity Graph" width="100%" style="max-width:820px;" />
   </a>
 </p>
 
@@ -137,6 +121,6 @@
     <code style="user-select:text;">sednev_a@internet.ru</code> — пишите!
   </p>
   <p style="margin:2px 0; font-size:0.75em; color:#666;">
-    Последнее обновление: 03 августа 2025
+    Последнее обновление: 16 февраля 2026
   </p>
 </div>

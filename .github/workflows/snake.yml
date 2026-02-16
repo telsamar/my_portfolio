@@ -1,4 +1,4 @@
-name: Generate GitHub stats & snake
+name: Update GitHub trophies
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  generate:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,37 +20,14 @@ jobs:
       - name: Ensure assets directory
         run: mkdir -p assets
 
-      - name: Generate stats card
-        uses: readme-tools/github-readme-stats-action@v1
-        with:
-          card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&count_private=true&include_all_commits=true
-          path: assets/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate top languages card
-        uses: readme-tools/github-readme-stats-action@v1
-        with:
-          card: top-langs
-          options: username=${{ github.repository_owner }}&layout=compact&theme=github_dark&hide_border=true&langs_count=8
-          path: assets/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate snake
-        uses: Platane/snk@master
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          svg_out_path: assets/github-contribution-grid-snake.svg
-
-      - name: Fetch trophy and activity graph
+      - name: Fetch trophy
         run: |
-          curl -sL "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=dark&margin-w=7&margin-h=7&no-frame=true" -o assets/trophies.svg || true
-          curl -sL "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&theme=github-dark&hide_border=true" -o assets/activity-graph.svg || true
+          curl -sL -A "Mozilla/5.0 (compatible; GitHub-Readme-Stats)" "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&theme=onedark&no-frame=true" -o assets/trophies.svg || true
 
       - name: Commit and push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add assets/
-          git diff --staged --quiet || git commit -m "chore: update GitHub stats and snake"
+          git add assets/trophies.svg
+          git diff --staged --quiet || git commit -m "chore: update GitHub trophies"
           git push
