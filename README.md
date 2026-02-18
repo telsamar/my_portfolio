@@ -126,6 +126,11 @@
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Django-приложение: регистрация и авторизация, каталог товаров/услуг, оформление заказов, отзывы. MySQL, настройка через переменные окружения.</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/profi270325">GitHub</a></td>
       </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сравнение способов HTTP-запросов</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сравнение производительности: синхронные запросы, asyncio, threading, multiprocessing. Python, requests, aiohttp, psutil; метрики CPU/память/время, сохранение в JSON.</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/diplom_tim">GitHub</a></td>
+      </tr>
     </tbody>
   </table>
 </div>
