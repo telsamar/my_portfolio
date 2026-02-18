@@ -1,0 +1,12 @@
+В test_dump.sql дамп базы. Для разворачивания создать пустую БД (например, test) и выполнить:
+mysql -u root -p test < test_dump.sql
+
+Установить Python, MySQL. В каталоге bankproject создать виртуальное окружение и установить зависимости:
+pip install -r requirements.txt
+
+Задать переменные окружения: DJANGO_SECRET_KEY, DB_NAME, DB_USER, DB_PASSWORD (при необходимости DB_HOST, DB_PORT). Либо создать файл .env в bankproject и подгружать его (например, через python-dotenv).
+
+Запуск из каталога bankproject:
+python manage.py runserver
+
+Открыть http://127.0.0.1:8000/

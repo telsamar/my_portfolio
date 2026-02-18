@@ -121,6 +121,11 @@
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Учёт студентов, предметов, преподавателей и экзаменов. Node.js, Express, PostgreSQL, загрузка предметов из Excel (.xlsx, .xls), скрипты настройки БД (Bash, PowerShell, bat).</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/work_1">GitHub</a></td>
       </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Банковский проект (Django)</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Django-приложение: регистрация и авторизация, каталог товаров/услуг, оформление заказов, отзывы. MySQL, настройка через переменные окружения.</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/profi270325">GitHub</a></td>
+      </tr>
     </tbody>
   </table>
 </div>
