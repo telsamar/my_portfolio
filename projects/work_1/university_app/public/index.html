@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Университетское Приложение</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .navbar {
+      display: flex;
+      background-color: #333;
+    }
+    .navbar button {
+      flex: 1;
+      padding: 14px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 16px;
+    }
+    .navbar button:hover, .navbar button.active {
+      background-color: #575757;
+    }
+    .container {
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    /* Формы */
+    .form-container {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .form-container h2 {
+      margin-top: 0;
+    }
+    .form-container input, .form-container select, .form-container button {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0 15px 0;
+      box-sizing: border-box;
+    }
+    .form-container button {
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #575757;
+    }
+    /* Сообщения */
+    .message {
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .message.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .message.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <button class="tablink active" data-table="exams">Экзамены</button>
+    <button class="tablink" data-table="students">Студенты</button>
+    <button class="tablink" data-table="subjects">Предметы</button>
+    <button class="tablink" data-table="teachers">Преподаватели</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title">Экзамены</h1>
+    <table id="data-table">
+      <thead id="table-head">
+      </thead>
+      <tbody id="table-body">
+      </tbody>
+    </table>
+
+    <div id="add-student-form" class="form-container" style="display: none;">
+      <h2>Добавить нового студента</h2>
+      <input type="text" id="student-first-name" placeholder="Имя" required>
+      <input type="text" id="student-last-name" placeholder="Фамилия" required>
+      <input type="date" id="student-birthdate" placeholder="Дата рождения">
+      <input type="email" id="student-email" placeholder="Email" required>
+      <button id="add-student-button">Добавить студента</button>
+      <div id="student-message" class="message" style="display: none;"></div>
+    </div>
+
+    <div id="assign-grade-form" class="form-container" style="display: none;">
+      <h2>Назначить оценку</h2>
+      <label for="exam-student">Студент:</label>
+      <select id="exam-student" required></select>
+
+      <label for="exam-subject">Предмет:</label>
+      <select id="exam-subject" required></select>
+
+      <label for="exam-teacher">Преподаватель:</label>
+      <select id="exam-teacher" required></select>
+
+      <label for="exam-grade">Оценка (0-100):</label>
+      <input type="number" id="exam-grade" min="0" max="100" required>
+
+      <label for="exam-date">Дата экзамена:</label>
+      <input type="date" id="exam-date" required>
+
+      <button id="assign-grade-button">Назначить оценку</button>
+      <div id="exam-message" class="message" style="display: none;"></div>
+    </div>
+
+    <div id="upload-subjects-form" class="form-container" style="display: none;">
+      <h2>Импортировать предметы из файла Excel</h2>
+      <input type="file" id="subjects-file" accept=".xlsx, .xls" required>
+      <button id="upload-subjects-button">Загрузить файл</button>
+      <div id="upload-message" class="message" style="display: none;"></div>
+    </div>
+  </div>
+
+  <script>
+    const apiBase = 'http://localhost:3000/api';
+    const tabButtons = document.querySelectorAll('.tablink');
+    const title = document.getElementById('title');
+    const tableHead = document.getElementById('table-head');
+    const tableBody = document.getElementById('table-body');
+
+    const addStudentForm = document.getElementById('add-student-form');
+    const addStudentButton = document.getElementById('add-student-button');
+    const studentMessage = document.getElementById('student-message');
+
+    const assignGradeForm = document.getElementById('assign-grade-form');
+    const assignGradeButton = document.getElementById('assign-grade-button');
+    const examMessage = document.getElementById('exam-message');
+
+    const uploadSubjectsForm = document.getElementById('upload-subjects-form');
+    const uploadSubjectsButton = document.getElementById('upload-subjects-button');
+    const uploadMessage = document.getElementById('upload-message');
+
+    function clearActive() {
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+    }
+
+    // Функция для загрузки данных
+    async function loadData(table) {
+      try {
+        const response = await fetch(`${apiBase}/${table}`);
+        const data = await response.json();
+        renderTable(table, data);
+        if (table === 'exams') {
+          addStudentForm.style.display = 'none';
+          assignGradeForm.style.display = 'block';
+          uploadSubjectsForm.style.display = 'none';
+          populateAssignGradeForm();
+        } else if (table === 'students') {
+          addStudentForm.style.display = 'block';
+          assignGradeForm.style.display = 'none';
+          uploadSubjectsForm.style.display = 'none';
+        } else if (table === 'subjects') {
+          addStudentForm.style.display = 'none';
+          assignGradeForm.style.display = 'none';
+          uploadSubjectsForm.style.display = 'block';
+        } else {
+          addStudentForm.style.display = 'none';
+          assignGradeForm.style.display = 'none';
+          uploadSubjectsForm.style.display = 'none';
+        }
+      } catch (error) {
+        console.error('Ошибка при загрузке данных:', error);
+      }
+    }
+
+    function renderTable(table, data) {
+      tableHead.innerHTML = '';
+      tableBody.innerHTML = '';
+      let headers = [];
+
+      if (table === 'exams') {
+        headers = ['ID', 'Студент', 'Предмет', 'Преподаватель', 'Оценка', 'Дата Экзамена'];
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.id}</td>
+            <td>${row.студент_имя} ${row.студент_фамилия}</td>
+            <td>${row.предмет}</td>
+            <td>${row.преподаватель_имя} ${row.преподаватель_фамилия}</td>
+            <td>${row.оценка}</td>
+            <td>${row.дата_экзамена}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      } else if (table === 'students') {
+        headers = ['ID', 'Имя', 'Фамилия', 'Дата Рождения', 'Email', 'Действия'];
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.id}</td>
+            <td>${row.имя}</td>
+            <td>${row.фамилия}</td>
+            <td>${row.дата_рождения}</td>
+            <td>${row.email}</td>
+            <td><button onclick="deleteStudent(${row.id})">Удалить</button></td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      } else if (table === 'subjects') {
+        headers = ['ID', 'Название', 'Описание'];
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.id}</td>
+            <td>${row.название}</td>
+            <td>${row.описание}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      } else if (table === 'teachers') {
+        headers = ['ID', 'Имя', 'Фамилия', 'Email', 'Должность'];
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.id}</td>
+            <td>${row.имя}</td>
+            <td>${row.фамилия}</td>
+            <td>${row.email}</td>
+            <td>${row.должность}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      }
+
+      const trHead = document.createElement('tr');
+      headers.forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        trHead.appendChild(th);
+      });
+      tableHead.appendChild(trHead);
+    }
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        clearActive();
+        button.classList.add('active');
+        const table = button.getAttribute('data-table');
+        title.textContent = capitalizeFirstLetter(table);
+        loadData(table);
+      });
+    });
+
+    window.onload = () => {
+      loadData('exams');
+    };
+
+    async function deleteStudent(id) {
+      if (!confirm('Вы уверены, что хотите удалить этого студента?')) return;
+      try {
+        const response = await fetch(`${apiBase}/students/${id}`, {
+          method: 'DELETE',
+        });
+        if (response.ok) {
+          alert('Студент успешно удалён.');
+          loadData('students');
+        } else {
+          const errorText = await response.text();
+          alert(`Ошибка: ${errorText}`);
+        }
+      } catch (error) {
+        console.error('Ошибка при удалении студента:', error);
+        alert('Произошла ошибка при удалении студента.');
+      }
+    }
+
+    addStudentButton.addEventListener('click', async () => {
+      const имя = document.getElementById('student-first-name').value.trim();
+      const фамилия = document.getElementById('student-last-name').value.trim();
+      const дата_рождения = document.getElementById('student-birthdate').value;
+      const email = document.getElementById('student-email').value.trim();
+
+      if (!имя || !фамилия || !email) {
+        showMessage(studentMessage, 'Пожалуйста, заполните все обязательные поля.', 'error');
+        return;
+      }
+
+      const studentData = { имя, фамилия, дата_рождения, email };
+
+      try {
+        const response = await fetch(`${apiBase}/students`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(studentData),
+        });
+        if (response.ok) {
+          const newStudent = await response.json();
+          showMessage(studentMessage, `Студент ${newStudent.имя} ${newStudent.фамилия} добавлен успешно.`, 'success');
+          document.getElementById('student-first-name').value = '';
+          document.getElementById('student-last-name').value = '';
+          document.getElementById('student-birthdate').value = '';
+          document.getElementById('student-email').value = '';
+          loadData('students');
+        } else {
+          const errorText = await response.text();
+          showMessage(studentMessage, `Ошибка: ${errorText}`, 'error');
+        }
+      } catch (error) {
+        console.error('Ошибка при добавлении студента:', error);
+        showMessage(studentMessage, 'Произошла ошибка при добавлении студента.', 'error');
+      }
+    });
+
+    function showMessage(element, message, type) {
+      element.textContent = message;
+      element.className = `message ${type}`;
+      element.style.display = 'block';
+      setTimeout(() => {
+        element.style.display = 'none';
+      }, 5000);
+    }
+
+    async function populateAssignGradeForm() {
+      try {
+        const studentsResponse = await fetch(`${apiBase}/students`);
+        const students = await studentsResponse.json();
+        const studentSelect = document.getElementById('exam-student');
+        studentSelect.innerHTML = '<option value="">Выберите студента</option>';
+        students.forEach(student => {
+          const option = document.createElement('option');
+          option.value = student.id;
+          option.textContent = `${student.имя} ${student.фамилия}`;
+          studentSelect.appendChild(option);
+        });
+
+        const subjectsResponse = await fetch(`${apiBase}/subjects`);
+        const subjects = await subjectsResponse.json();
+        const subjectSelect = document.getElementById('exam-subject');
+        subjectSelect.innerHTML = '<option value="">Выберите предмет</option>';
+        subjects.forEach(subject => {
+          const option = document.createElement('option');
+          option.value = subject.id;
+          option.textContent = subject.название;
+          subjectSelect.appendChild(option);
+        });
+
+        const teachersResponse = await fetch(`${apiBase}/teachers`);
+        const teachers = await teachersResponse.json();
+        const teacherSelect = document.getElementById('exam-teacher');
+        teacherSelect.innerHTML = '<option value="">Выберите преподавателя</option>';
+        teachers.forEach(teacher => {
+          const option = document.createElement('option');
+          option.value = teacher.id;
+          option.textContent = `${teacher.имя} ${teacher.фамилия}`;
+          teacherSelect.appendChild(option);
+        });
+
+      } catch (error) {
+        console.error('Ошибка при загрузке данных для формы назначения оценки:', error);
+      }
+    }
+
+    assignGradeButton.addEventListener('click', async () => {
+      const студент_id = document.getElementById('exam-student').value;
+      const предмет_id = document.getElementById('exam-subject').value;
+      const преподаватель_id = document.getElementById('exam-teacher').value;
+      const оценка = parseInt(document.getElementById('exam-grade').value);
+      const дата_экзамена = document.getElementById('exam-date').value;
+
+      if (!студент_id || !предмет_id || !преподаватель_id || оценка === undefined || !дата_экзамена) {
+        showMessage(examMessage, 'Пожалуйста, заполните все обязательные поля.', 'error');
+        return;
+      }
+
+      if (оценка < 0 || оценка > 100) {
+        showMessage(examMessage, 'Оценка должна быть от 0 до 100.', 'error');
+        return;
+      }
+
+      const examData = { студент_id, предмет_id, преподаватель_id, оценка, дата_экзамена };
+
+      try {
+        const response = await fetch(`${apiBase}/exams`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(examData),
+        });
+        if (response.ok) {
+          const newExam = await response.json();
+          showMessage(examMessage, `Оценка назначена успешно.`, 'success');
+          document.getElementById('exam-student').value = '';
+          document.getElementById('exam-subject').value = '';
+          document.getElementById('exam-teacher').value = '';
+          document.getElementById('exam-grade').value = '';
+          document.getElementById('exam-date').value = '';
+          loadData('exams');
+        } else {
+          const errorText = await response.text();
+          showMessage(examMessage, `Ошибка: ${errorText}`, 'error');
+        }
+      } catch (error) {
+        console.error('Ошибка при назначении оценки:', error);
+        showMessage(examMessage, 'Произошла ошибка при назначении оценки.', 'error');
+      }
+    });
+
+    uploadSubjectsButton.addEventListener('click', async () => {
+      const fileInput = document.getElementById('subjects-file');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        showMessage(uploadMessage, 'Пожалуйста, выберите файл для загрузки.', 'error');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch(`${apiBase}/subjects/upload`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          showMessage(uploadMessage, result.message, 'success');
+          fileInput.value = '';
+          loadData('subjects');
+        } else {
+          const errorText = await response.text();
+          showMessage(uploadMessage, `Ошибка: ${errorText}`, 'error');
+        }
+      } catch (error) {
+        console.error('Ошибка при загрузке файла:', error);
+        showMessage(uploadMessage, 'Произошла ошибка при загрузке файла.', 'error');
+      }
+    });
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+  </script>
+
+</body>
+</html>

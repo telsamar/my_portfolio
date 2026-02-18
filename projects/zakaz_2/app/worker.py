@@ -39,12 +39,6 @@ Session = sessionmaker(bind=engine)
 
 
 def download_video(url):
-    """
-    Скачивает видео с YouTube по заданному URL.
-
-    :param url: URL видео на YouTube.
-    :return: Путь к скачанному файлу.
-    """
     try:
         if not os.path.exists('./videos'):
             os.makedirs('./videos')
@@ -73,9 +67,6 @@ def download_video(url):
 
 
 def detect_faces_in_video(video_path, frame_interval=30):
-    """
-    Обнаруживает все лица в видео и сохраняет их координаты.
-    """
     try:
         logger.info(f"Начало анализа видео: {video_path}")
 
@@ -137,9 +128,6 @@ def detect_faces_in_video(video_path, frame_interval=30):
 
 def callback(ch, method, properties, body):
     logger.info(f"Получено сообщение из очереди: {body.decode()}")
-    """
-    Обработчик сообщений из очереди RabbitMQ.
-    """
     url = body.decode()
     logger.info(f"Получен URL: {url}")
     session = Session()
@@ -193,9 +181,6 @@ def callback(ch, method, properties, body):
 
 
 def main():
-    """
-    Основная функция воркера, устанавливающая соединение с RabbitMQ и начинающая потребление сообщений.
-    """
     while True:
         try:
             logger.info("Подключение к RabbitMQ...")

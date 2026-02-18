@@ -55,12 +55,8 @@ class VideoURL(BaseModel):
 
 @app.post("/videos/add")
 def add_video(video: VideoURL):
-    """
-    Добавляет видео в очередь для обработки.
-    """
     session = SessionLocal()
     try:
-        # Проверяем, существует ли уже запись с этим URL
         existing_video = session.query(Video).filter_by(url=video.url).first()
         if existing_video:
             if existing_video.status != 'Завершено':
@@ -68,13 +64,11 @@ def add_video(video: VideoURL):
             else:
                 raise HTTPException(status_code=400, detail="Видео уже обработано.")
         
-        # Создаём новую запись в базе данных
         new_video = Video(url=video.url, status='В очереди')
         session.add(new_video)
         session.commit()
         session.refresh(new_video)
         
-        # Отправляем сообщение в очередь
         channel.basic_publish(
             exchange='',
             routing_key=RABBITMQ_QUEUE,
@@ -94,9 +88,6 @@ def add_video(video: VideoURL):
 
 @app.get("/videos")
 def list_videos():
-    """
-    Получает список всех анализируемых видео.
-    """
     session = SessionLocal()
     try:
         videos = session.query(Video).all()
@@ -115,9 +106,6 @@ def list_videos():
 
 @app.get("/videos/by_url")
 def get_video_info_by_url(url: str):
-    """
-    Получает информацию о конкретном видео по его URL.
-    """
     session = SessionLocal()
     try:
         video = session.query(Video).filter_by(url=url).first()

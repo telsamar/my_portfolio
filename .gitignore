@@ -7,3 +7,6 @@ package-lock.json
 .env
 projects/*
 !projects/zakaz/
+!projects/zakaz_1/
+!projects/zakaz_2/
+!projects/work_1/

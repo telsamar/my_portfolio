@@ -8,13 +8,10 @@ DB_PORT="5432"
 
 export PGPASSWORD=$DB_PASS
 
-# 1. Создать базу данных
 psql -U $DB_USER -h $DB_HOST -p $DB_PORT -c "CREATE DATABASE $DB_NAME;"
 
-# 2. Дать все права на БД
 psql -U $DB_USER -h $DB_HOST -p $DB_PORT -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
 
-# 3. Создать таблицу и вставить три записи
 psql -U $DB_USER -h $DB_HOST -p $DB_PORT -d $DB_NAME <<EOSQL
 
 CREATE TABLE IF NOT EXISTS uavs (
@@ -37,7 +34,6 @@ CREATE TABLE IF NOT EXISTS uavs (
   application_areas TEXT
 );
 
--- 1) Геоскан 201
 INSERT INTO uavs (
   photo_url,
   name,
@@ -74,7 +70,6 @@ INSERT INTO uavs (
   'Сбор данных, мониторинг'
 );
 
--- 2) Sigma mini
 INSERT INTO uavs (
   photo_url,
   name,
@@ -109,7 +104,6 @@ INSERT INTO uavs (
   'Сбор данных, мониторинг'
 );
 
--- 3) Supercam X6M2
 INSERT INTO uavs (
   photo_url,
   name,

@@ -106,6 +106,21 @@
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Модель прогнозирования заявок по адресам на день, неделю и месяц: нормализация адресов, исключения и коэффициенты по территориям, кластеризация в области по координатам, вывод в Excel. Консоль, меню и GUI для настройки конфига.</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/zakaz">GitHub</a></td>
       </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Каталог БПЛА</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Веб-приложение-каталог беспилотных летательных аппаратов: бэкенд на Node.js и PostgreSQL, API фильтров (производитель, тип ЛА, область применения) и списка/карточки дрона, статический фронтенд.</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/zakaz_1">GitHub</a></td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Анализ лиц в YouTube-видео</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сервис добавления YouTube-видео в очередь, скачивания (yt-dlp), детекции лиц (OpenCV) и сохранения результатов. FastAPI, RabbitMQ, PostgreSQL, воркер в Docker Compose.</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/zakaz_2">GitHub</a></td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Университетское приложение</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Учёт студентов, предметов, преподавателей и экзаменов. Node.js, Express, PostgreSQL, загрузка предметов из Excel (.xlsx, .xls), скрипты настройки БД (Bash, PowerShell, bat).</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/work_1">GitHub</a></td>
+      </tr>
     </tbody>
   </table>
 </div>
