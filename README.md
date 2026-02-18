@@ -49,26 +49,6 @@
     </thead>
     <tbody>
       <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер на Scrapy для сбора каталога товаров с www.ysl.com/en-en и загрузки данных в гугл-таблицу</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/parser2/tree/main">GitHub</a></td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер сайта b2b.zip161.ru</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/Parser">GitHub</a></td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Бот торговли на основе фандинга</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Версия бота на основе фандинга по API Bybit, использование Docker</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/FUND_BYBIT_1/tree/main">GitHub</a></td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Бот торговли на основе полос Боллинджера</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Интеграция с API биржи, алгоритмы, анализ данных, Docker</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/BolBands_BYBIT_2/tree/main">GitHub</a></td>
-      </tr>
-      <tr>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Интернет-магазин</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Витрина интернет-магазина: каталог, коллекции, корзина, чекаут, оплата, личный кабинет. Фронтенд: Next.js 15 (App Router, Turbopack), React, TypeScript, Tailwind CSS, Radix UI и Headless UI, Medusa UI, серверные компоненты и кэширование. Бэкенд: headless-коммерция на Medusa v2 (Store API, админка), Node.js, PostgreSQL. Интеграции: платёжный провайдер (yookassa), почтовая рассылка (nodemailer). Мультирегион (регионы, валюты, доставка), кастомные виджеты в админ-панели, тесты (Jest).</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">NDA</td>
@@ -77,6 +57,26 @@
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сервис подписок</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Telegram-бот для оформления подписок, тарифы, оплата по вебхуку, реферальная система, тестовые и платные ключи. Управляющий сервер: Python, python-telegram-bot, PostgreSQL (psycopg2), Flask (вебхук платёжного провайдера), httpx. Агент-серверы: FastAPI-агент (uvicorn) для управления панелью, nginx, TLS (Let's Encrypt), подписки по ссылкам. Развёртывание и настройка через Bash-скрипты.</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">NDA</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Бот торговли на основе полос Боллинджера</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Интеграция с API биржи, алгоритмы, анализ данных, Docker</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/BolBands_BYBIT_2/tree/main">GitHub</a></td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Бот торговли на основе фандинга</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Версия бота на основе фандинга по API Bybit, использование Docker</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/FUND_BYBIT_1/tree/main">GitHub</a></td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер на Scrapy для сбора каталога товаров с www.ysl.com/en-en и загрузки данных в гугл-таблицу</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/parser2/tree/main">GitHub</a></td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Парсер сайта b2b.zip161.ru</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/Parser">GitHub</a></td>
       </tr>
     </tbody>
   </table>
@@ -97,19 +97,9 @@
     </thead>
     <tbody>
       <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Тестовое задание Data-аналитика</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Выполнение тестового при трудоустройстве на должность Data-аналитика</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/work-Backend-Python-Junior/tree/stable">GitHub</a></td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Тестовое задание Data-аналитика #2</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Второе тестовое задание при трудоустройстве на должность Data-аналитика</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/testhse/tree/main">GitHub</a></td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">НИРС</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Научно-исследовательская работа: определение лица на фотографии с помощью YOLO</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/YOLOv8-nirs/tree/main">GitHub</a></td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Анализ лиц в YouTube-видео</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сервис добавления YouTube-видео в очередь, скачивания (yt-dlp), детекции лиц (OpenCV) и сохранения результатов. FastAPI, RabbitMQ, PostgreSQL, воркер в Docker Compose.</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/zakaz_2">GitHub</a></td>
       </tr>
       <tr>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Прогноз заявок на инсталляции</td>
@@ -117,14 +107,14 @@
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/zakaz">GitHub</a></td>
       </tr>
       <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">НИРС</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Научно-исследовательская работа: определение лица на фотографии с помощью YOLO</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/YOLOv8-nirs/tree/main">GitHub</a></td>
+      </tr>
+      <tr>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Каталог БПЛА</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Веб-приложение-каталог беспилотных летательных аппаратов: бэкенд на Node.js и PostgreSQL, API фильтров (производитель, тип ЛА, область применения) и списка/карточки дрона, статический фронтенд.</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/zakaz_1">GitHub</a></td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Анализ лиц в YouTube-видео</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сервис добавления YouTube-видео в очередь, скачивания (yt-dlp), детекции лиц (OpenCV) и сохранения результатов. FastAPI, RabbitMQ, PostgreSQL, воркер в Docker Compose.</td>
-        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/zakaz_2">GitHub</a></td>
       </tr>
       <tr>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Университетское приложение</td>
@@ -135,6 +125,16 @@
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Банковский проект (Django)</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Django-приложение: регистрация и авторизация, каталог товаров/услуг, оформление заказов, отзывы. MySQL, настройка через переменные окружения.</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/my_portfolio/tree/main/projects/profi270325">GitHub</a></td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Тестовое задание Data-аналитика</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Выполнение тестового при трудоустройстве на должность Data-аналитика</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/work-Backend-Python-Junior/tree/stable">GitHub</a></td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Тестовое задание Data-аналитика #2</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Второе тестовое задание при трудоустройстве на должность Data-аналитика</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/testhse/tree/main">GitHub</a></td>
       </tr>
       <tr>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сравнение способов HTTP-запросов</td>
