@@ -68,6 +68,16 @@
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Интеграция с API биржи, алгоритмы, анализ данных, Docker</td>
         <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;"><a href="https://github.com/telsamar/BolBands_BYBIT_2/tree/main">GitHub</a></td>
       </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Интернет-магазин</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Витрина интернет-магазина: каталог, коллекции, корзина, чекаут, оплата, личный кабинет. Фронтенд: Next.js 15 (App Router, Turbopack), React, TypeScript, Tailwind CSS, Radix UI и Headless UI, Medusa UI, серверные компоненты и кэширование. Бэкенд: headless-коммерция на Medusa v2 (Store API, админка), Node.js, PostgreSQL. Интеграции: платёжный провайдер (yookassa), почтовая рассылка (nodemailer). Мультирегион (регионы, валюты, доставка), кастомные виджеты в админ-панели, тесты (Jest).</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">NDA</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Сервис подписок</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">Telegram-бот для оформления подписок, тарифы, оплата по вебхуку, реферальная система, тестовые и платные ключи. Управляющий сервер: Python, python-telegram-bot, PostgreSQL (psycopg2), Flask (вебхук платёжного провайдера), httpx. Агент-серверы: FastAPI-агент (uvicorn) для управления панелью, nginx, TLS (Let's Encrypt), подписки по ссылкам. Развёртывание и настройка через Bash-скрипты.</td>
+        <td style="border:1px solid #ccc; padding:8px; overflow-wrap:break-word;">NDA</td>
+      </tr>
     </tbody>
   </table>
 </div>
