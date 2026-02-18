@@ -73,7 +73,7 @@
 </div>
 
 <h3 align="center" style="font-size:1.2em; font-weight:600; margin:24px 0 12px 0; padding:0 12px;">
-  Заказы по учёбе
+  Проекты по учёбе
 </h3>
 <div align="center" style="width:100%; overflow-x:auto; padding:0 12px;">
   <table cellpadding="8" cellspacing="0" style="border-collapse:collapse; border:1px solid #ccc; width:100%; min-width:320px; table-layout:fixed;">
